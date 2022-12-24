@@ -1,0 +1,47 @@
+#version: '3.8'
+# see here https://docs.docker.com/compose/compose-file/compose-versioning/ 
+version: '3.1'
+
+services:
+  fe:
+    build:
+      context: ./sa-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8090:80"
+    environment:
+      - REACT_ENV=development
+    networks:
+      - frontend
+
+  lo:
+    build:
+      context: ./sa-logic
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    networks:
+      - backend
+
+  wa:
+    build:
+      context: ./sa-webapp
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8081"
+    environment:
+      - SA_LOGIC_API_URL=http://172.19.0.2:5000
+      - WA_NETWORK=backend
+    depends_on:
+      - lo
+    networks:
+      - frontend 
+      - backend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge

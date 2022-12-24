@@ -1,0 +1,19 @@
+{
+  "FilePath": "/Users/saikiranreddykonda/Documents/A-Rated/CSYE7220/RockStar/rockstar-webapi/rockstar.webapi.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "3.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 800
+  },
+  "RootNamespace": "rockstar.webapi",
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}

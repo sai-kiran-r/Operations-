@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sa-logic 
+spec:
+  selector:
+    matchLabels:
+      app: sa-logic
+  replicas: 3 
+  minReadySeconds: 15 
+  strategy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata: 
+      labels:
+        app: sa-logic 
+    spec:
+      containers:
+      - image: saikiranreddykonda/sa-login-new
+        imagePullPolicy: Always 
+        name: sa-logic
+        ports:
+        - containerPort: 5000
