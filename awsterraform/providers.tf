@@ -3,8 +3,8 @@
 #
 provider "aws" { 
     region = "us-west-2"
-    #access_key = "AKIAYX3KUE26P6Z7XB2M"
-    #secret_key = "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"
+    #access_key = ""
+    #secret_key = ""
 }
 
 # Using these data sources allows the configuration to be 
